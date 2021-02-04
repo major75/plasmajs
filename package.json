@@ -1,5 +1,5 @@
 {
-  "name": "@plasma/plasmajs",
+  "name": "@estyle-rzn/plasmajs",
   "version": "1.1.10",
   "description": "Talk to plasma API",
   "main": "dist/index.js",
@@ -29,7 +29,7 @@
   "author": "PlasmaPay",
   "license": "MIT",
   "dependencies": {
-    "@plasma/plasmajs-ecc": "0.1.3",
+    "@estyle-rzn/plasmajs-ecc": "latest",
     "babel-runtime": "6.26.0",
     "text-encoding": "0.7.0"
   },
