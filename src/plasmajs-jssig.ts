@@ -3,7 +3,7 @@
  */
 // copyright defined in plasmajs/LICENSE.txt
 
-import * as ecc from '@plasma/plasmajs-ecc';
+import * as ecc from '@estyle-rzn/plasmajs-ecc';
 import { SignatureProvider, SignatureProviderArgs } from './plasmajs-api-interfaces';
 import { convertLegacyPublicKey } from './plasmajs-numeric';
 

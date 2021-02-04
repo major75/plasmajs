@@ -2,7 +2,7 @@
  * @module Offline Build and sign tx
  */
 
-import * as ecc from '@plasma/plasmajs-ecc';
+import * as ecc from '@estyle-rzn/plasmajs-ecc';
 import {CachedAbi} from './plasmajs-api-interfaces';
 import {Abi} from './plasmajs-rpc-interfaces';
 import * as ser from './plasmajs-serialize';

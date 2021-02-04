@@ -1,4 +1,4 @@
-import * as ecc from '@plasma/plasmajs-ecc';
+import * as ecc from '@estyle-rzn/plasmajs-ecc';
 import { JsSignatureProvider } from '../plasmajs-jssig';
 
 describe('JsSignatureProvider', () => {

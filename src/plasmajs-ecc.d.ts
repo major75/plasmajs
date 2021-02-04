@@ -1,1 +1,1 @@
-declare module "@plasma/plasmajs-ecc";
+declare module "@estyle-rzn/plasmajs-ecc";
