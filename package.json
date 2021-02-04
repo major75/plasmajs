@@ -1,6 +1,6 @@
 {
   "name": "@estyle-rzn/plasmajs",
-  "version": "1.1.10",
+  "version": "1.1.11",
   "description": "Talk to plasma API",
   "main": "dist/index.js",
   "files": [
