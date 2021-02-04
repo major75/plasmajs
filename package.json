@@ -1,0 +1,84 @@
+{
+  "name": "@plasma/plasmajs",
+  "version": "1.1.10",
+  "description": "Talk to plasma API",
+  "main": "dist/index.js",
+  "files": [
+    "README.md",
+    "dist",
+    "src",
+    "dist-web"
+  ],
+  "scripts": {
+    "cypress": "./scripts/run-cypress.sh",
+    "cypress-ui": "./scripts/run-cypress.sh ui",
+    "prepare": "npm run build",
+    "lint": "tslint -c tslint.json -p tsconfig.json",
+    "lint-fix": "tslint -c tslint.json -p tsconfig.json --fix",
+    "test": "jest src/tests/*plasmajs*",
+    "test-node": "jest src/tests/*node*",
+    "test-all": "npm run test && npm run test-node && npm run cypress",
+    "build": "tsc -p ./tsconfig.json && cp src/ripemd.es5.js dist/ripemd.js",
+    "build-web-offline": "mkdir -p dist-web && browserify -o dist-web/plasmajs-offline-build.js -s plasmajs dist/plasmajs-offline-build.js && uglifyjs dist-web/plasmajs-offline-build.js -o dist-web/plasmajs-offline-build.min.js --source-map --compress --mangle",
+    "build-web": "webpack --config webpack.prod.js && webpack --config webpack.debug.js && npm run build-web-offline",
+    "build-development": "npm run clean && npm run build && npm run build-web && npm run test-all",
+    "build-production": "npm run clean && npm run build && npm run build-web-offline",
+    "clean": "rm -rf dist && rm -rf dist-web",
+    "publish": "./node_modules/.bin/bump --prompt --tag --push --all"
+  },
+  "author": "PlasmaPay",
+  "license": "MIT",
+  "dependencies": {
+    "@plasma/plasmajs-ecc": "0.1.3",
+    "babel-runtime": "6.26.0",
+    "text-encoding": "0.7.0"
+  },
+  "devDependencies": {
+    "browserify": "^16.2.3",
+    "uglify-es": "^3.3.9",
+    "@blockone/tslint-config-blockone": "3.0.0",
+    "@types/jest": "24.0.6",
+    "@types/node": "11.9.4",
+    "@types/text-encoding": "0.0.35",
+    "babel-cli": "6.26.0",
+    "babel-plugin-transform-runtime": "6.23.0",
+    "babel-preset-env": "1.7.0",
+    "babel-preset-stage-1": "6.24.1",
+    "cypress": "3.1.5",
+    "jest": "23.5.0",
+    "jest-fetch-mock": "2.1.1",
+    "json-loader": "0.5.7",
+    "mocha": "5.2.0",
+    "mochawesome": "3.1.1",
+    "node-fetch": "latest",
+    "ts-jest": "24.0.0",
+    "ts-loader": "5.3.3",
+    "tslint": "5.12.1",
+    "tslint-eslint-rules": "5.4.0",
+    "typescript": "3.3.3",
+    "webpack": "4.29.5",
+    "webpack-cli": "3.2.3",
+    "version-bump-prompt": "^4.2.1"
+  },
+  "jest": {
+    "automock": false,
+    "setupFiles": [
+      "./src/tests/setupJest.js"
+    ],
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ],
+    "transform": {
+      "^.+\\.(tsx?)$": "ts-jest"
+    },
+    "globals": {
+      "ts-jest": {
+        "tsConfig": "tsconfig.json"
+      }
+    },
+    "testRegex": "(/src/.*(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+    "testEnvironment": "node"
+  }
+}
